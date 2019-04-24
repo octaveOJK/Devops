@@ -1,0 +1,6 @@
+---
+wp_apache_hostname: 'devopstest.com'
+wp_apache_alias: 'www.devopstest.com cdn.devopstest.com'
+wp_apache_admin_email: 'admin@devopstest.com'
+wp_apache_listen_port: 8080
+

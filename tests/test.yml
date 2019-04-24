@@ -1,0 +1,15 @@
+---
+- hosts: all
+  vars:
+    wp_version: 4.0
+    wp_install_dir: '/var/sites/awesome_wordpress_site'
+    wp_db_name: 'devopsdb'
+    wp_db_user: 'root'
+    wp_db_password: 'ertyerty'
+    wp_db_host: 'localhost'
+
+    wp_apache_hostname: 'localhost'
+    wp_apache_alias: 'localhost'
+    wp_apache_admin_email: 'admin@devopstest.com'
+  roles:
+  - devopstest.wordpress-apache
