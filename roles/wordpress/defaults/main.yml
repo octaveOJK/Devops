@@ -1,0 +1,6 @@
+mysql_db: "devopsdb"
+mysql_user: "root"
+mysql_password: "ertyerty"
+mysql_host: "10.33.0.2"
+
+wordpress_source: "https://wordpress.org/latest.tar.gz"

@@ -1,0 +1,53 @@
+---
+
+- name: install Mysql
+  apt: 
+    name: mysql-server
+    update_cache: yes
+  remote_user: octaveojk@gmail.com
+  become: true
+
+- name: install python
+  apt: 
+    name: python
+    update_cache: yes
+  remote_user: octaveojk@gmail.com
+  become: true
+
+- name: install pip
+  apt: 
+    name: python-pip
+    update_cache: yes
+  remote_user: octaveojk@gmail.com
+  become: true 
+ 
+- name: install libmysqlclient-dev
+  apt: 
+    name: libmysqlclient-dev
+  remote_user: octaveojk@gmail.com
+  become: true
+
+- name: install mysql-python
+  pip: name=MySQL-python
+
+- name: "config wp-config.php"
+  template:
+    src: ./templates/.my.cnf
+    dest: /etc/mysql/my.cnf
+  become: true
+
+- name: create a new user
+  mysql_user:
+    name: wpUser
+    password: ertyerty
+    priv: '*.*:ALL'
+    state: present
+    login_user: root
+    host: '%'
+
+- name: Create a new database with name 'wp'
+  mysql_db:
+    name: wp
+    state: present
+    login_user: wpUser
+    login_password: "ertyerty"
